@@ -1,72 +1,80 @@
-<!-- product_item.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:padding="16dp">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
         <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/productImage"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:shapeAppearanceOverlay="@style/CustomRoundedImageView"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_marginTop="8dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/CustomRoundedImageView" />
 
         <TextView
-            android:layout_marginLeft="20dp"
             android:id="@+id/productName"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-
-    <TextView
-        android:id="@+id/productDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"/>
-
-    <TextView
-        android:id="@+id/productPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/removeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
-            android:layout_marginEnd="8dp"/>
+            android:layout_marginStart="16dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/productImage"
+            app:layout_constraintTop_toTopOf="@+id/productImage" />
 
         <TextView
-            android:id="@+id/txt_qty"
-            android:layout_width="100dp"
+            android:id="@+id/productDescription"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="0"/>
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/productName"
+            app:layout_constraintTop_toBottomOf="@id/productName" />
 
-        <Button
-            android:id="@+id/addButton"
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/productDescription"
+            app:layout_constraintTop_toBottomOf="@id/productDescription" />
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+"/>
-    </LinearLayout>
-</LinearLayout>
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/productDescription"
+            app:layout_constraintTop_toBottomOf="@id/productPrice"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/removeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/txt_qty"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="0"/>
+
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -42,7 +42,7 @@ class PricingRulesTest {
 
     @Test
     fun `testPricingRulesForDefaultCustomer`() {
-        val defaultCustomer = Customer("default")
+        val defaultCustomer = Customer("Regular")
 
         val smallPizza = Item("Small Pizza", "Delicious small pizza", 11.99)
         val mediumPizza = Item("Medium Pizza", "Delicious medium pizza", 15.99)
@@ -81,9 +81,18 @@ class PricingRulesTest {
     @Test
     fun `testPricingRulesForAmazonCustomer`() {
         val amazonCustomer = Customer("Amazon")
+        val mediumPizza = Item("Medium Pizza", "Delicious medium pizza", 15.99)
+        val largePizza = Item("Large Pizza", "Delicious large pizza", 21.99)
 
-        // Test logic for Amazon customer pricing rules
-        // ...
+        val cartItem1 = ShoppingCartItem(mediumPizza, 3)
+        val cartItem2 = ShoppingCartItem(largePizza, 1)
+
+        val pricingResult1 = PricingRules.rules[amazonCustomer]?.invoke(cartItem1)
+        val pricingResult2 = PricingRules.rules[amazonCustomer]?.invoke(cartItem2)
+
+        val totalPrice = (pricingResult1 ?: 0.0) + (pricingResult2 ?: 0.0)
+
+        assert(totalPrice == 67.96)
     }
 
     @Test
