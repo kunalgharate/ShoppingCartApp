@@ -47,7 +47,3 @@ The application is thoroughly tested using both unit and integration tests. The 
 
 Contributions are always welcome! Please feel free to fork the repository and submit pull requests.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
