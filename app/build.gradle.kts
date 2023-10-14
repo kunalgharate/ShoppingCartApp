@@ -67,6 +67,7 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.48.1")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.test.ext:junit-ktx:1.1.5")
+    implementation("androidx.test:runner:1.5.2")
     kapt("com.google.dagger:hilt-compiler:2.48.1")
 
     //testing
