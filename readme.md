@@ -10,7 +10,7 @@ The Shopping Cart App is a simple Android application that allows users to manag
 ## Features
 
 - Choose user
-- Select product for the user
+- Select items for the user
 - Add items to the cart
 - Remove items from the cart
 - View the total price of the cart
