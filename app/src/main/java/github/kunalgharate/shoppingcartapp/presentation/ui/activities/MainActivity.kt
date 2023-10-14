@@ -1,49 +1,61 @@
 package github.kunalgharate.shoppingcartapp.presentation.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import github.kunalgharate.shoppingcartapp.R
-import github.kunalgharate.shoppingcartapp.data.model.Item
-import github.kunalgharate.shoppingcartapp.presentation.adapter.CartAdapter
+import github.kunalgharate.shoppingcartapp.constants.AppConstants
+import github.kunalgharate.shoppingcartapp.databinding.ActivityMainBinding
+import github.kunalgharate.shoppingcartapp.presentation.adapter.ProductAdapter
+import github.kunalgharate.shoppingcartapp.presentation.ui.fragments.CartFragment
+import github.kunalgharate.shoppingcartapp.presentation.vm.ProductViewModel
 import github.kunalgharate.shoppingcartapp.presentation.vm.ShoppingCartViewModel
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    private lateinit var viewModel: ShoppingCartViewModel
-    private lateinit var cartRecyclerView: RecyclerView
-    private lateinit var cartAdapter: CartAdapter
+
+    private val viewModel: ProductViewModel by viewModels()
+    private val shoppingCartVM : ShoppingCartViewModel by viewModels()
+    private lateinit var binding: ActivityMainBinding
+    private var cartFragment: CartFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        viewModel = ViewModelProvider(this).get(ShoppingCartViewModel::class.java)
 
-        cartRecyclerView = findViewById(R.id.cartRecyclerView)
-        cartAdapter = CartAdapter()
+        viewModel.customer.set(intent.getParcelableExtra(AppConstants.customer))
+        shoppingCartVM.customer.set(intent.getParcelableExtra(AppConstants.customer))
+        binding.toolbar.title = "Customer : ${viewModel.customer.get()?.name}"
+        viewModel.users.observe(this)
+        { products ->
+            if (!products.isNullOrEmpty()) {
+                binding.productRecyclerView.adapter = ProductAdapter(products){ updatedCartList->
+                    shoppingCartVM._cartItems.value = updatedCartList
+                }
+            }
+        }
 
-        cartRecyclerView.layoutManager = LinearLayoutManager(this)
-        cartRecyclerView.adapter = cartAdapter
+        shoppingCartVM.cartItems.observe(this)
+        {
+            binding.cartBtn.text = "Go to cart (${it.size})"
+        }
 
-        // Initialize your items and customers here
+        binding.cartBtn.setOnClickListener{
+            showBottomSheetDialog()
+        }
 
-        // Example: Add a Small Pizza to the cart
-        val smallPizza = Item("Small Pizza", "10'' pizza for one person", 11.99)
-        viewModel.addItemToCart(smallPizza)
 
-        // Update the cartAdapter when cart items change
-        viewModel.cartItems.observe(this, Observer { cartItems ->
-            cartAdapter.submitList(cartItems)
-        })
+    }
 
-        // Update the total price when it changes
-        viewModel.totalPrice.observe(this, Observer {
-            // Update your UI to display the total price
-        })
+    private fun showBottomSheetDialog() {
+        if (cartFragment == null) {
+            cartFragment =  CartFragment();
+        }
+        cartFragment!!.show(getSupportFragmentManager(), "bottom_sheet");
     }
 }

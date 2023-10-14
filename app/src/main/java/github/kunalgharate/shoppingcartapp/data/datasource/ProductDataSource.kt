@@ -12,4 +12,13 @@ class ProductDataSource {
     fun getProducts(): List<Item> {
         return productList
     }
+
+    fun getProductByName(name: String): Item? {
+        for (product in productList) {
+            if (product.name == name) {
+                return product
+            }
+        }
+        return null // Return null if the product is not found
+    }
 }
