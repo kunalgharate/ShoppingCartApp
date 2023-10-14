@@ -23,13 +23,15 @@ The Shopping Cart App is a simple Android application that allows users to manag
 
 ## Screenshots
 
-![Screenshot 1](screenshots/user_selection_ss.png)
+
+![user_selection_ss](https://github.com/kunalgharate/ShoppingCartApp/assets/20945934/ca5298a7-d1ce-474b-bdb4-c87c3a511ff8)
 *Screenshot 1: Home screen displaying the list of available products*
 
-![Screenshot 2](screenshots/product_list_ss.png)
+![product_list_ss](https://github.com/kunalgharate/ShoppingCartApp/assets/20945934/ca590c3c-2ab6-458e-afa7-4947277b2e53)
 *Screenshot 2: Cart screen displaying the items added to the cart*
 
-![Screenshot 3](screenshots/cart_ss.png)
+![cart_ss](https://github.com/kunalgharate/ShoppingCartApp/assets/20945934/e248ac10-34aa-4289-be51-d6e8ab7a1bcc)
+
 *Screenshot 2: Cart screen displaying the items added to the cart*
 
 
