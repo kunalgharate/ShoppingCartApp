@@ -9,10 +9,12 @@ The Shopping Cart App is a simple Android application that allows users to manag
 
 ## Features
 
+- Choose user
+- Select product for the user
 - Add items to the cart
 - Remove items from the cart
 - View the total price of the cart
-- Offline storage for the product catalog and user's shopping cart
+- Discount added for the customers
 - Clean architecture design for better maintainability and scalability
 
 ## Technologies Used
@@ -21,6 +23,7 @@ The Shopping Cart App is a simple Android application that allows users to manag
 - Kotlin
 - Jetpack Libraries (ViewModel, LiveData, Room)
 - Hilt for dependency injection
+- Junit testing framework
 
 ## Screenshots
 
