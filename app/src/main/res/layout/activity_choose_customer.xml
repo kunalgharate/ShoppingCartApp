@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="ShoppingCartApp"
+        app:title="@string/app_name"
         app:titleTextColor="@color/white"
         android:background="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"

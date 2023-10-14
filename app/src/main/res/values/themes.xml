@@ -6,4 +6,9 @@
         <item name="android:fontFamily">@font/nunito_sans</item>
     </style>
     <style name="Theme.ShoppingCartApp" parent="Base.Theme.ShoppingCartApp" />
+
+    <style name="CustomRoundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
 </resources>
