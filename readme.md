@@ -1,6 +1,7 @@
 # Shopping Cart App
 
-![App Screenshot](screenshot.png)
+![App Icon](https://github.com/kunalgharate/ShoppingCartApp/assets/20945934/b60192a4-873f-4f0c-97bc-687a59eb50d2)
+
 
 ## Description
 
