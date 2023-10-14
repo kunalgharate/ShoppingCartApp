@@ -38,7 +38,7 @@ Screenshot 3: Cart screen displaying the items added to the cart
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/shopping-cart-app.git`
+1. Clone the repository: `git clone https://github.com/kunalgharate/ShoppingCartApp.git`
 2. Open the project in Android Studio.
 3. Build the project and run it on an emulator or physical device.
 
