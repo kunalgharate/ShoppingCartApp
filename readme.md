@@ -1,6 +1,6 @@
 # Shopping Cart App
 
-![App Icon](https://github.com/kunalgharate/ShoppingCartApp/assets/20945934/b60192a4-873f-4f0c-97bc-687a59eb50d2)
+![pizza-app](https://github.com/kunalgharate/ShoppingCartApp/assets/20945934/c04d74b5-c0fe-40a6-9fb8-026bfb8582fc)
 
 
 ## Description
