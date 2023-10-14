@@ -10,7 +10,7 @@ object PricingRules {
 
     init {
         // Default pricing rules
-        rules[Customer("default")] = { item -> item.item.price }
+        rules[Customer("Regular")] = { item -> item.item.price }
         // Microsoft Gets a 3 for 2 deal for Small Pizzas
         rules[Customer("Microsoft")] = { item ->
             when {

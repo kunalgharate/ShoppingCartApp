@@ -6,7 +6,7 @@ import github.kunalgharate.shoppingcartapp.data.model.Customer
 // UserDataSource.kt
 class UserDataSource {
     private val userList: List<Customer> = listOf(
-        Customer("Regular(Default)"),
+        Customer("Regular"),
         Customer("Microsoft"),
         Customer("Amazon"),
         Customer("Facebook"),

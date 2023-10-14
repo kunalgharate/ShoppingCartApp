@@ -13,7 +13,9 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.search.SearchView.Behavior
+import com.google.android.material.snackbar.Snackbar
 import github.kunalgharate.shoppingcartapp.R
+import github.kunalgharate.shoppingcartapp.constants.AppConstants
 import github.kunalgharate.shoppingcartapp.data.model.Customer
 import github.kunalgharate.shoppingcartapp.data.model.Item
 import github.kunalgharate.shoppingcartapp.data.model.ShoppingCartItem
@@ -34,7 +36,6 @@ class CartFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_cart, container, false)
-
         return binding.root;
     }
 
@@ -46,6 +47,14 @@ class CartFragment : BottomSheetDialogFragment() {
             binding.toolbar.title = "${shoppingCartVM.customer.get()?.name?:"default"} Cart ( ${it.size} )"
             binding.cartRecyclerView.adapter = CartAdapter(it)
             calculatePricingAndApplyOffer(it, shoppingCartVM.customer.get()?.name?:"default")
+        }
+
+        binding.placeOrderBtn.setOnClickListener{
+            val snackbar = Snackbar.make(view, AppConstants.orderPlacedMessage, Snackbar.LENGTH_INDEFINITE)
+            snackbar.setAction(AppConstants.orderPlacedAction) {
+                requireActivity().finish()
+            }
+            snackbar.show()
         }
     }
 
