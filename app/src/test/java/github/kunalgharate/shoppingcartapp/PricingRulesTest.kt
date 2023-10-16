@@ -9,35 +9,6 @@ import org.junit.Test
 
 class PricingRulesTest {
 
-    //    @Inject
-//    lateinit var productRepository: ProductRepository
-//
-//    @Inject
-//    lateinit var userRepository: UserRepository
-//
-//    @Before
-//    fun setup() {
-//        hiltRule.inject()
-//    }
-//
-//    @get:Rule
-//    var hiltRule = HiltAndroidRule(this)
-
-
-
-    //    @Test
-//    fun `test pricing rules for Microsoft customer`() {
-//        val customer = Customer("Microsoft")
-//       // val smallPizza = productRepository.getProductByName("Small Pizza")
-//        if (smallPizza != null) {
-//            val cartItem1 = ShoppingCartItem(smallPizza, 3) // 3 Small Pizzas for Microsoft
-//
-//            val pricingResult = PricingRules.rules[customer]?.invoke(cartItem1)
-//            assert(pricingResult == 23.98) // Price for 3 Small Pizzas with 3 for 2 deal should be 20.0
-//        } else {
-//            assert(false) // If the product is not found, fail the test
-//        }
-    //   }
 
 
     @Test

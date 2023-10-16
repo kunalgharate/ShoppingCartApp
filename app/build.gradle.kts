@@ -17,7 +17,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "github.kunalgharate.shoppingcartapp.HiltTestRunner"
     }
 
 
@@ -83,6 +83,13 @@ dependencies {
     androidTestImplementation("com.android.support.test:rules:1.0.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // Instrumented Unit Tests
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.2.1")
+    androidTestImplementation("androidx.arch.core:core-testing:2.1.0")
+    androidTestImplementation("com.google.truth:truth:1.0.1")
+    androidTestImplementation ("org.mockito:mockito-core:2.21.0")
+
 }
 kapt {
     correctErrorTypes = true
