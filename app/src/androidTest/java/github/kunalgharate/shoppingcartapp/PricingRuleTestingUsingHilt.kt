@@ -26,7 +26,6 @@ class PricingRuleTestingUsingHilt {
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Inject
-    @Named("test_product")
     lateinit var productRepository: ProductRepository
 
 
